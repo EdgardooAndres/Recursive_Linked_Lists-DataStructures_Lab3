@@ -33,7 +33,7 @@ public class SystemController {
 	private MainIndexManager mim;        // manager of main index data
 	private DocsIDManager didm;          // manager of documents ids in the system
 	private Stack<Menu> mStack;          // stack to manage actions in menus in this system
-	
+
 	/**
 	 * Returns reference of the unique instance of SystemController in the system. 
 	 * @return reference to the unique instance of SystemController
@@ -42,10 +42,10 @@ public class SystemController {
 	public static SystemController getInstance() throws IOException { 
 		if (instance == null) 
 			instance = new SystemController(); 
-		
+
 		return instance; 
 	}
-	
+
 	/**
 	 * Initiates the actions of this controller based on the main menu and
 	 * user's selected choices. 
@@ -57,7 +57,7 @@ public class SystemController {
 			opt.getAction().execute(this); 
 		} 
 	}
-	
+
 	/**
 	 * Creates an instance of SystemController -- the only instance that
 	 * can exist in the system. 
@@ -69,7 +69,7 @@ public class SystemController {
 		didm = DocsIDManager.getInstance();     // initializes didm with data in doc_ID.pp3 file
 		mStack = new Stack<Menu>();      // used to control menu operations
 	}
-		
+
 	/**
 	 * Returns reference to the stack object used to manage different
 	 * states of the system. 
@@ -78,7 +78,7 @@ public class SystemController {
 	public Stack<Menu> getMenuStack() { 
 		return mStack; 
 	}
-		
+
 	/**
 	 * To be executed whenever the user initiates an action of 
 	 * adding a new document to the system.
@@ -94,7 +94,7 @@ public class SystemController {
 			throws IOException {
 
 		File docFilePath;   // the path for the document's file
-		
+
 		// Call method in P3Utils to validate the name and file. It the file name 
 		// is not valid or the corresponding file does not exist in the docs 
 		// directory, it then terminates returning the message of an exception
@@ -107,7 +107,7 @@ public class SystemController {
 		}
 
 		// If passes, then the file name for the document is valid and the file exists...
-		
+
 		// Try to register the new document to the docsID structure (didm object). 
 		// If that document does not exist, it assigns a new ID and returns
 		// it. If the document exists (a document with same name has been
@@ -140,7 +140,7 @@ public class SystemController {
 
 		return "Document " + docName + " was successfully added."; // things worked fine			
 	}
-	
+
 	/**
 	 * Registers all data of the new document in mim structure. For each word in the document, 
 	 * there will be a pair (docID, frequency) that will be added. 
@@ -149,10 +149,12 @@ public class SystemController {
 	 *          (word, list of locations)
 	 */
 	private void registerDataInMIM(int docID, Map<String, ArrayList<Integer>> documentWordsMap) {
-		//ADD MISSING CODE HERE	(Exercise 4)
-		
-		
-		
+		//ADD MISSING CODE HERE	(Exercise 4) TODO 
+
+		for(String w : documentWordsMap.keySet())
+			mim.registerWordInDocument(w, docID, documentWordsMap.get(w).size());
+
+
 	}
 
 	/**
@@ -163,7 +165,7 @@ public class SystemController {
 	 * @throws IOException if there are problems with file: file format, etc. 
 	 */
 	private void saveMapToIDXFile(int docID, Map<String, ArrayList<Integer>> documentWordsMap) 
-	throws IOException 
+			throws IOException 
 	{
 		String fName = makeIDXName(docID); 
 		File idxFilePath = new File(P3Utils.IndexDirectoryPath, fName); 
@@ -176,7 +178,7 @@ public class SystemController {
 					idxFile.writeInt(location);
 				idxFile.writeInt(-1);            // marks the end of the list in the file
 			}
-			
+
 			idxFile.close();
 		}
 		else 
@@ -196,15 +198,21 @@ public class SystemController {
 	 * @param docFile the file where the document's content is located.
 	 */
 	private void fillMapFromDocumentText(Map<String, ArrayList<Integer>> documentWordsMap, 
-										 RandomAccessFile docFile) 
+			RandomAccessFile docFile) 
 	{
 		Document document = new Document(docFile); 
 		for (WordInDocument wid : document) {
 			ArrayList<Integer> wordLocsList = documentWordsMap.get(wid.getWord());	
-			// ADD MISSING CODE HERE (Exercise 4)
+			// ADD MISSING CODE HERE (Exercise 4)  TODO
 			
-			
-			
+			if(wordLocsList == null) //no hay nada con esa palabra todavia
+			{
+				//crear y poner
+				wordLocsList = new ArrayList<>((int) wid.getLocation());
+				documentWordsMap.put(wid.getWord(), wordLocsList);
+			}
+			else // y EXISTE ALGO ASI QUE AÒAde.
+				wordLocsList.add((int) wid.getLocation());
 		}
 	}
 
@@ -219,10 +227,10 @@ public class SystemController {
 	 * @throws IllegalArgumentException 
 	 */
 	public Map<Integer, MatchingSearchDocument> search(ArrayList<String> wtSearchList) 
-	throws IllegalArgumentException, IOException { 
+			throws IllegalArgumentException, IOException { 
 		Map<Integer, MatchingSearchDocument> matchingDocuments =
 				new Hashtable<>(); 
-		
+
 		// mim is the MainIndexMaganer
 		// fills the map of matching documents with as many entries as documents containing at least one
 		// of the words in the search list. For each such document, it adds an entry composed of
@@ -241,7 +249,7 @@ public class SystemController {
 			MatchingSearchDocument smd = e.getValue(); 
 			smd.buildMatchingLocations();
 		}
-		
+
 		return matchingDocuments; 	
 	}
 
@@ -261,7 +269,7 @@ public class SystemController {
 	private void addToMatchingDocumentsMap(
 			Map<Integer, MatchingSearchDocument> mdm,
 			int docID, String word) 
-	throws IllegalArgumentException, IOException {
+					throws IllegalArgumentException, IOException {
 		MatchingSearchDocument docMD = mdm.get(docID); 
 		if (docMD == null) {
 			docMD = new MatchingSearchDocument(docID); 
@@ -269,7 +277,7 @@ public class SystemController {
 		}
 		docMD.addMatchingWord(word);
 	}
-	
+
 	/**
 	 * Closes the SystemController object. Must be done when exiting the system. 
 	 */

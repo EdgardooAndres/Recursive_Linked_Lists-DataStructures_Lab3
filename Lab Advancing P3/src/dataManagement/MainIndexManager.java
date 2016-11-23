@@ -89,7 +89,7 @@ public class MainIndexManager {
 		Entry<Integer, Integer> newEntry = new AbstractMap.SimpleEntry<>(docID, frequency); 
 
 		if (wordDocsList == null)  {
-			// ADD MISSING CODE HERE FOR EXERCISE 1 (LAB)
+			// ADD MISSING CODE HERE FOR EXERCISE 1 (LAB) TODO
 			ArrayList<Entry<Integer, Integer>> listaNueva = new ArrayList<>();
 			listaNueva.add(newEntry);
 			map.put(word, listaNueva);
@@ -142,9 +142,10 @@ public class MainIndexManager {
 			try {
 				file = new RandomAccessFile(fPath, "rw");
 				file.seek(0);
-				// ADD MISSING PART HERE for Exercise 2
+				// ADD MISSING PART HERE for Exercise 2 TODO
 				for(String w : map.keySet())
 				{
+					P3Utils.writeWordToFile(w, file);
 					writeToDocsListToFile(map.get(w));
 				}
 

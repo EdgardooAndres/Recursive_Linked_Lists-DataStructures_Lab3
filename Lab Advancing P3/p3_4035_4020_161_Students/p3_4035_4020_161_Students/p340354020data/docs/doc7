@@ -1,0 +1,70 @@
+I took Statistics 133 on a whim the semester before UC Berkeley rolled 
+out Data 8: Foundations of Data Science, the university’s first attempt 
+at an accessible, interdisciplinary course that “combines three perspectives: 
+inferential thinking, computational thinking, and real-world relevance.” While 
+Statistics 133 was initially intended for statistics majors and is frequently 
+plagued with overcrowding, Data 8 was designed from the ground up to be 
+interdisciplinary and accessible. The course, and the larger data science 
+initiative it spearheaded, emerged out of the realization that data science 
+transcends more than just the field of statistics or computer science.
+
+This is because data science has already proven its potential to powerfully 
+transform a wide range of disciplines. In a 2015 Bloomberg article titled 
+“Econ 101: Chicago? M.I.T.? Nope, Berkeley’s on Top” columnist Noah Smith 
+posits the idea of a “Berkeley Reformation,” citing the achievements of 
+legendary faculty members such as Emmanuel Saez and David Card, whose work 
+is helping “change the very meaning of economics, from a largely theory-based 
+form of mathematical philosophy to a data-driven science.” And according to 
+a 2011 McKinsey & Company study, our country as a whole “could face a shortage 
+of 140,000 to 190,000 people with deep analytical skills as well as 1.5 million 
+managers and analysts with the know how to use the analysis of big data to make 
+effective decisions” by 2018.
+
+
+Given the increasing importance of data science in both industry and academia, 
+it is not surprising that waitlist sizes for introductory statistics and computer 
+science courses such as Statistics 133 and CS 61A have grown to the hundreds. 
+But increasing the size of these classes may be unsustainable. More importantly, 
+the interdisciplinary nature of data science demands accessibility. Those who 
+major strictly in the humanities and wish to gain a basic proficiency in data 
+science should not be forced to enroll in domain-specific classes, such as CS 61A. 
+These courses are affectionately known as “weeder classes” for good reason — they 
+are incentivized to discourage students from pursuing certain majors. In fact, 
+much of the content in introductory programming courses such as CS 61A is not 
+immediately relevant to those who want to work with data in a research (or a 
+scientific) setting. Unlike Data 8, CS 61A and even Statistics 133 do not teach 
+inferential thinking or even basic statistics. Though it is true that many of 
+the other concepts these courses teach have important applications in data science, 
+the concepts these courses omit are absolutely critical for any foundation in data 
+science.
+
+The inaccessibility and obscurity of “learning data science” at the undergraduate 
+level is worse in upper division computer science and statistics courses. For example, 
+enrolling in upper division computer science as a noncomputer science major can be 
+extremely difficult, as priority is given to those who have declared the major. 
+Fortunately, faculty members are racing to introduce follow-up courses to Data 8 
+such as Data 100: Principles and Techniques of Data Science, and there are nearly 
+a dozen two-unit “connector courses” to match domain knowledge with data science. 
+According to EECS professor John DeNero, “UC Berkeley is at the forefront of data 
+science at the undergraduate level.” Much of this progress, however, depends on 
+whether the Academic Senate votes to allocate resources for a College of Computing 
+and Data Sciences in the coming months. This college would house associated majors 
+that currently do not have an institutional home (such as Cognitive Science) while 
+cross-listing existing courses across various departments into a logical, intuitive 
+map, making it easy for students to navigate the data science landscape in a truly 
+interdisciplinary fashion.
+
+Opponents of this plan might point to the university’s $150 million structural 
+deficit as a reason for why we literally cannot afford to make this decision. 
+This is a valid concern. But doubling down on the progress we have made in order 
+to execute a vision for the 21st century has the potential to attract a deluge of 
+outside funding. Additionally, because everything is being built from the ground up, 
+exploring alternative revenue streams such as online education might still be on 
+the table. While I realize I do not represent all of the students who would be 
+affected by the creation of this college, I owe the chance of being able to participate 
+in something I am truly passionate about — public policy analysis — to a few random 
+decisions that gave me a makeshift foundation in data science. I got lucky, but future 
+students should not have to rely on luck to have the opportunity to pursue their passions. 
+If we make our voices heard and let the university know this is something the campus 
+community supports, we can turn data science at UC Berkeley into a gift that continues 
+to give for generations to come.
